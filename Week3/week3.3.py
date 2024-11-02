@@ -3,7 +3,7 @@ print ("How many Mountains you want to see?")
 display = int(input())
 
 for mountain in range(display):
-    print(""""       
+    print("""       
            __
           /  \\_  
          /^    \\_
