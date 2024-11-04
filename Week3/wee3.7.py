@@ -6,3 +6,4 @@ for index in range(len(phrase) - 1, -1, -1):
     print(phrase[index], end="")
 
 print(f"\nPhrase: {phrase}")  # Move to a new line after the reversed phrase is displayed
+
