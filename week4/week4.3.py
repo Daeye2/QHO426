@@ -23,7 +23,7 @@ add_numbers()
 def my_add(x, y):
     return x + y
 
-results = my_add(3, 5)
+results = my_add(10, 30)
 
 print(results)
 
