@@ -3,33 +3,33 @@ from week7 import tui, data_procces, visual
 import csv
 
 def main():
-    # Try to load the dataset
-    data = data_procces.load_data("disneyland_reviews.csv")
-    if not data:  # If data is empty, exit the program
-        print("Failed to load the dataset. Exiting the application.")
-        return
+        # Try to load the dataset
+        data = data_procces.load_data("disneyland_reviews.csv")
+        if not data:  # If data is empty, exit the program
+            print("Failed to load the dataset. Exiting the application.")
+            return
 
-    print(f"Dataset loaded with {len(data)} entries.")
+        print(f"Dataset loaded with {len(data)} entries.")
 
-    while True:
-        print("\nMain Menu:")
-        print("A - View Data")
-        print("B - View Visualizations")
-        print("C - Export Data")
-        print("Type 'exit' to close the application")
-        choice = input("Enter your choice: ").strip().upper()
+        while True:
+            print("\nMain Menu:")
+            print("A - View Data")
+            print("B - View Visualizations")
+            print("C - Export Data")
+            print("Type 'exit' to close the application")
+            choice = input("Enter your choice: ").strip().upper()
 
-        if choice == 'A':
-            handle_data_view(data)
-        elif choice == 'B':
-            handle_visualization(data)
-        elif choice == 'C':
-            handle_export(data)
-        elif choice.lower() == 'exit':
-            print("Exiting application.")
-            break
-        else:
-            print("Invalid choice. Please try again.")
+            if choice == 'A':
+                handle_data_view(data)
+            elif choice == 'B':
+                handle_visualization(data)
+            elif choice == 'C':
+                handle_export(data)
+            elif choice.lower() == 'exit':
+                print("Exiting application.")
+                break
+            else:
+                print("Invalid choice. Please try again.")
 
 
 
