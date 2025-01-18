@@ -11,9 +11,9 @@ def load_data(filename):
             data.append(row)
     return data
 
-def display_reviews_by_park(data, park_name):
+def display_reviews_by_park(data, parkName):
     for review in data:
-        if review['Branch'].lower() == park_name.lower():
+        if review['Branch'].lower() == parkName.lower():
             print(review)
 
 def count_reviews_by_location(data, park_name, location):
