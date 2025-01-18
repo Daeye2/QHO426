@@ -19,9 +19,9 @@ def main():
 
     while True:
         print("\nMain Menu:")
-        print("A - View Data")
-        print("B - View Visualizations")
-        print("C - Export Data")
+        print("[A] - View Data")
+        print("[B] - View Visualizations")
+        print("[C] - Export Data")
         print("Type 'exit' to close the application")
         choice = input("Enter your choice: ").strip().upper()
 
