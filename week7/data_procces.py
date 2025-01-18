@@ -11,14 +11,18 @@ def load_data(filename):
             data.append(row)
     return data
 
+
 def display_reviews_by_park(data, parkName):
     for review in data:
         if review['Branch'].lower() == parkName.lower():
             print(review)
 
+
 def count_reviews_by_location(data, parkName, location):
-    count = sum(1 for review in data if review['Branch'].lower() == parkName.lower() and review['Reviewer_Location'].lower() == location.lower())
+    count = sum(1 for review in data if review['Branch'].lower() == parkName.lower() and review[
+        'Reviewer_Location'].lower() == location.lower())
     return count
+
 
 # data_processor.py
 
@@ -39,6 +43,7 @@ def average_score_by_location(data):
         scores[review['Branch'], review['Reviewer_Location']].append(int(review['Rating']))
     for (park, location), ratings in scores.items():
         print(f"{park} - {location}: {sum(ratings) / len(ratings)}")
+
 
 def export_data(data, format_choice):
     # Sample function for exporting based on format choice

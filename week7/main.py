@@ -1,5 +1,5 @@
 import week7
-from week7 import tui, data_procces, visual # Adjusted import to use custom `process`
+from week7 import tui, data_procces, visual
 import csv
 
 def main():
