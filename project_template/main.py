@@ -7,10 +7,12 @@ Note:   any user input/output should be done in the module 'tui'
         any processing should be done in the module 'process'
         any visualisation should be done in the module 'visual'
 """
+from fontTools.ttx import process
+
 
 def main():
     # Try to load the dataset
-    data = procces.load_data("disneyland_reviews.csv")
+    data = process.load_data("disneyland_reviews.csv")
     if not data:  # If data is empty, exit the program
         print("Failed to load the dataset. Exiting the application.")
         return
@@ -25,15 +27,13 @@ def main():
         print("Type 'exit' to close the application")
         choice = input("Enter your choice: ").strip().upper()
 
-    # if choice == 'A':
-    #     handle_data_view(data)
-    # elif choice == 'B':
-    #     handle_visualization(data)
-    # elif choice == 'C':
-    #     handle_export(data)
-    # elif choice.lower() == 'exit':
-    #     print("Exiting application.")
-    #     break
-    # else:
-    #     print("Invalid choice. Please try again.")
+def handle_export(data):
+    format_choice = input("Enter export format (TXT, CSV, JSON): ").strip().upper()
+    if format_choice in ["TXT", "CSV", "JSON"]:
+        data.export_data(data, format_choice)
+    else:
+        print("Invalid format.")
 
+
+if __name__ == "__main__":
+    main()
