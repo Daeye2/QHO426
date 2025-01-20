@@ -22,3 +22,15 @@ def count_reviews_by_location(data, park_name, location):
     count = sum(1 for review in data if review['Branch'].lower() == park_name.lower() and review[
         'Reviewer_Location'].lower() == location.lower())
     return count
+
+
+def average_rating_by_year(data, park_name, year):
+    return None
+
+
+def average_score_by_location(data):
+    return None
+
+
+def export_data(data, format_choice):
+    return None
