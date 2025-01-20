@@ -1,6 +1,7 @@
 # tui.py
 
 def display_main_menu():
+    #Displays the main menu to the user and prompts for a choice.
     print("Main Menu")
     print("A - View Data")
     print("B - View Visualizations")
@@ -9,6 +10,7 @@ def display_main_menu():
     return input("Enter your choice: ").strip().upper()
 
 def display_data_view_menu():
+    #Displays the data view menu to the user and prompts for a choice.
     print("\nData View Menu")
     print("1 - View all reviews for a specific park")
     print("2 - Count reviews for a park from a location")
@@ -17,6 +19,7 @@ def display_data_view_menu():
     return input("Enter your choice: ").strip()
 
 def display_visualization_menu():
+    #Displays the visualization menu to the user and prompts for a choice.
     print("\nVisualization Menu")
     print("1 - Pie chart of review counts by park")
     print("2 - Bar chart of average scores by park")
