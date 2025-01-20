@@ -1,4 +1,4 @@
-# process.py
+# data_process.py
 import csv
 from collections import defaultdict
 
@@ -12,14 +12,14 @@ def load_data(filename):
     return data
 
 
-def display_reviews_by_park(data, parkName):
+def display_reviews_by_park(data, park_name):
     for review in data:
-        if review['Branch'].lower() == parkName.lower():
+        if review['Branch'].lower() == park_name.lower():
             print(review)
 
 
-def count_reviews_by_location(data, parkName, location):
-    count = sum(1 for review in data if review['Branch'].lower() == parkName.lower() and review[
+def count_reviews_by_location(data, park_name, location):
+    count = sum(1 for review in data if review['Branch'].lower() == park_name.lower() and review[
         'Reviewer_Location'].lower() == location.lower())
     return count
 

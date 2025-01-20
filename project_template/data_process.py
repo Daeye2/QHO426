@@ -12,3 +12,13 @@ def load_data(filename):
         for row in reader:
             data.append(row)
     return data
+
+def display_reviews_by_park(data, park_name):
+    for review in data:
+        if review['Branch'].lower() == park_name.lower():
+            print(review)
+
+def count_reviews_by_location(data, park_name, location):
+    count = sum(1 for review in data if review['Branch'].lower() == park_name.lower() and review[
+        'Reviewer_Location'].lower() == location.lower())
+    return count

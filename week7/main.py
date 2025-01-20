@@ -38,7 +38,7 @@ def handle_data_view(data):
     choice = tui.display_data_view_menu()
     if choice == '1':
         park_name = input("Enter the park name: ")
-        data_procces.display_reviews_by_park(data, park_name)
+        procces.display_reviews_by_park(data, park_name)
     elif choice == '2':
         park_name = input("Enter the park name: ")
         location = input("Enter the reviewer's location: ")

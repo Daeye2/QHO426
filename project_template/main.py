@@ -26,13 +26,14 @@ def main():
         choice = input("Enter your choice: ").strip().upper()
 
     # if choice == 'A':
-    #         handle_data_view(data)
-    #     elif choice == 'B':
-    #         handle_visualization(data)
-    #     elif choice == 'C':
-    #         handle_export(data)
-    #     elif choice.lower() == 'exit':
-    #         print("Exiting application.")
-    #         break
-    #     else:
-    #         print("Invalid choice. Please try again.")
+    #     handle_data_view(data)
+    # elif choice == 'B':
+    #     handle_visualization(data)
+    # elif choice == 'C':
+    #     handle_export(data)
+    # elif choice.lower() == 'exit':
+    #     print("Exiting application.")
+    #     break
+    # else:
+    #     print("Invalid choice. Please try again.")
+
