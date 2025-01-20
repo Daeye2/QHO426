@@ -18,3 +18,15 @@ def pie_chart_review_counts(data):
     plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140)
     plt.title("Review Counts by Park")
     plt.show()
+
+
+def bar_chart_average_scores(data):
+    return None
+
+
+def top_locations_by_rating(data, park_name):
+    return None
+
+
+def monthly_avg_rating(data, park_name):
+    return None
