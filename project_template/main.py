@@ -7,10 +7,12 @@ Note:   any user input/output should be done in the module 'tui'
         any processing should be done in the module 'process'
         any visualisation should be done in the module 'visual'
 """
+import data_process
+import csv
 
 def main():
     # Try to load the dataset
-    data = procces.load_data("disneyland_reviews.csv")
+    data = data_procces.load_data("disneyland_reviews.csv")
     if not data:  # If data is empty, exit the program
         print("Failed to load the dataset. Exiting the application.")
         return
@@ -19,21 +21,30 @@ def main():
 
     while True:
         print("\nMain Menu:")
-        print("[A] - View Data")
-        print("[B] - View Visualizations")
-        print("[C] - Export Data")
+        print("A - View Data")
+        print("B - View Visualizations")
+        print("C - Export Data")
         print("Type 'exit' to close the application")
         choice = input("Enter your choice: ").strip().upper()
 
-    # if choice == 'A':
-    #     handle_data_view(data)
-    # elif choice == 'B':
-    #     handle_visualization(data)
-    # elif choice == 'C':
-    #     handle_export(data)
-    # elif choice.lower() == 'exit':
-    #     print("Exiting application.")
-    #     break
-    # else:
-    #     print("Invalid choice. Please try again.")
+        if choice == 'A':
+            handle_data_view(data)
+        elif choice == 'B':
+            handle_visualization(data)
+        elif choice == 'C':
+            handle_export(data)
+        elif choice.lower() == 'exit':
+            print("Exiting application.")
+            break
+        else:
+            print("Invalid choice. Please try again.")
 
+def handle_data_view(data):
+    return
+def handle_visualization(data):
+    return
+def handle_export(data):
+    return
+
+if __name__ == "__main__":
+    main()
