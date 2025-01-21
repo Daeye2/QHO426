@@ -16,7 +16,7 @@ def main_function():
     # Try to load the dataset
     data = process.load_data("data/disneyland_reviews.csv")
     if not data:  # If data is empty, exit the program
-        print("Failed to load the CSV. Exiting the application.")
+        print("Failed to load the CSV. Exiting application.")
         return
 
     print(f"CSV loaded with {len(data)} entries.")
