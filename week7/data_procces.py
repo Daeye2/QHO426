@@ -46,24 +46,18 @@ def average_score_by_location(data):
 
 
 def export_data(data, filename):
-
     if not data:
         print("No data to export.")
         return
-
     # Get the headers from the keys of the first dictionary
     headers = data[0].keys()
-
     try:
-        with open(filename, mode='w', newline='', encoding='utf-8') as csvfile:
+        with open(filename) as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=headers)
-
             # Write the header row
             writer.writeheader()
-
             # Write the data rows
             writer.writerows(data)
-
         print(f"Data successfully exported to {filename}")
 
     except Exception as e:

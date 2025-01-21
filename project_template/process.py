@@ -38,6 +38,7 @@ def average_rating_by_year(data, park_name, year):
 
 
 def average_score_by_location(data):
+    # Calculates and prints the average rating for each branch and reviewer location.
     scores = defaultdict(list)
     for review in data:
         scores[review['Branch'], review['Reviewer_Location']].append(int(review['Rating']))
@@ -45,5 +46,20 @@ def average_score_by_location(data):
         print(f"{park} - {location}: {sum(ratings) / len(ratings)}")
 
 
-def export_data(data, format_choice):
-    return None
+def export_data(data, filename):
+    if not data:
+        print("No data to export.")
+        return
+    # Get the headers from the keys of the first dictionary
+    headers = data[0].keys()
+    try:
+        with open(filename) as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=headers)
+            # Write the header row
+            writer.writeheader()
+            # Write the data rows
+            writer.writerows(data)
+        print(f"Data successfully exported to {filename}")
+
+    except Exception as e:
+        print(f"An error occurred while exporting data: {e}")
