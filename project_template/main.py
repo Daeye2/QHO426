@@ -74,8 +74,14 @@ def handle_visualization(data: object):
         park_name = input("Enter the park name: ")
         visual.monthly_avg_rating(data, park_name)
 
+
 def handle_export(data):
-    return
+    format_choice = input("Enter export format (TXT, CSV, JSON): ").strip().upper()
+    if format_choice in ["TXT", "CSV", "JSON"]:
+        process.export_data(data, format_choice)
+    else:
+        print("Invalid format.")
+
 
 if __name__ == "__main__":
     main_function()
