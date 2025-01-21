@@ -7,12 +7,14 @@ Note:   any user input/output should be done in the module 'tui'
         any processing should be done in the module 'process'
         any visualisation should be done in the module 'visual'
 """
-import data_process
 import csv
+import process
+import tui
+import visual
 
 def main():
     # Try to load the dataset
-    data = data_procces.load_data("disneyland_reviews.csv")
+    data = process.load_data("disneyland_reviews.csv")
     if not data:  # If data is empty, exit the program
         print("Failed to load the dataset. Exiting the application.")
         return

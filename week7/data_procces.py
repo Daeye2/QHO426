@@ -1,4 +1,4 @@
-# data_process.py
+# process.py
 import csv
 from collections import defaultdict
 
@@ -45,6 +45,26 @@ def average_score_by_location(data):
         print(f"{park} - {location}: {sum(ratings) / len(ratings)}")
 
 
-def export_data(data, format_choice):
-    # Sample function for exporting based on format choice
-    pass
+def export_data(data, filename):
+
+    if not data:
+        print("No data to export.")
+        return
+
+    # Get the headers from the keys of the first dictionary
+    headers = data[0].keys()
+
+    try:
+        with open(filename, mode='w', newline='', encoding='utf-8') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=headers)
+
+            # Write the header row
+            writer.writeheader()
+
+            # Write the data rows
+            writer.writerows(data)
+
+        print(f"Data successfully exported to {filename}")
+
+    except Exception as e:
+        print(f"An error occurred while exporting data: {e}")
