@@ -1,5 +1,4 @@
-import week7
-from week7 import tui, data_procces, visual
+import tui, data_procces, visual
 import csv
 
 def main():
@@ -57,15 +56,15 @@ def handle_visualization(data: object):
     # Handle the 'B' menu options
     choice = tui.display_visualization_menu()
     if choice == '1':
-        week7.visual.pie_chart_review_counts(data)
+        visual.pie_chart_review_counts(data)
     elif choice == '2':
-        week7.visual.bar_chart_average_scores(data)
+        visual.bar_chart_average_scores(data)
     elif choice == '3':
         park_name = input("Enter the park name: ")
-        week7.visual.top_locations_by_rating(data, park_name)
+        visual.top_locations_by_rating(data, park_name)
     elif choice == '4':
         park_name = input("Enter the park name: ")
-        week7.visual.monthly_avg_rating(data, park_name)
+        visual.monthly_avg_rating(data, park_name)
 
 
 def handle_export(data):

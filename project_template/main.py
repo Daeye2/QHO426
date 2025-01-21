@@ -46,22 +46,34 @@ def handle_data_view(data):
     choice = tui.display_data_view_menu()
     if choice == '1':
         park_name = input("Enter the park name: ")
-        procces.display_reviews_by_park(data, park_name)
+        process.display_reviews_by_park(data, park_name)
     elif choice == '2':
         park_name = input("Enter the park name: ")
         location = input("Enter the reviewer's location: ")
-        count = procces.count_reviews_by_location(data, park_name, location)
+        count = process.count_reviews_by_location(data, park_name, location)
         print(f"{count} reviews found for {park_name} from {location}")
     elif choice == '3':
         park_name = input("Enter the park name: ")
         year = input("Enter the year (YYYY): ")
-        avg_rating = procces.average_rating_by_year(data, park_name, year)
+        avg_rating = process.average_rating_by_year(data, park_name, year)
         print(f"Average rating for {park_name} in {year} is {avg_rating}")
     elif choice == '4':
-        procces.average_score_by_location(data)
+        process.average_score_by_location(data)
 
-def handle_visualization(data):
-    return
+def handle_visualization(data: object):
+    # Handle the 'B' menu options
+    choice = tui.display_visualization_menu()
+    if choice == '1':
+        visual.pie_chart_review_counts(data)
+    elif choice == '2':
+        visual.bar_chart_average_scores(data)
+    elif choice == '3':
+        park_name = input("Enter the park name: ")
+        visual.top_locations_by_rating(data, park_name)
+    elif choice == '4':
+        park_name = input("Enter the park name: ")
+        visual.monthly_avg_rating(data, park_name)
+
 def handle_export(data):
     return
 
