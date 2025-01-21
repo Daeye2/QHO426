@@ -12,14 +12,14 @@ import process
 import tui
 import visual
 
-def main():
+def main_function():
     # Try to load the dataset
     data = process.load_data("disneyland_reviews.csv")
     if not data:  # If data is empty, exit the program
-        print("Failed to load the dataset. Exiting the application.")
+        print("Failed to load the CSV. Exiting the application.")
         return
 
-    print(f"Dataset loaded with {len(data)} entries.")
+    print(f"CSV loaded with {len(data)} entries.")
 
     while True:
         print("\nMain Menu:")
@@ -42,11 +42,28 @@ def main():
             print("Invalid choice. Please try again.")
 
 def handle_data_view(data):
-    return
+    # Handle the 'A' menu options
+    choice = tui.display_data_view_menu()
+    if choice == '1':
+        park_name = input("Enter the park name: ")
+        procces.display_reviews_by_park(data, park_name)
+    elif choice == '2':
+        park_name = input("Enter the park name: ")
+        location = input("Enter the reviewer's location: ")
+        count = procces.count_reviews_by_location(data, park_name, location)
+        print(f"{count} reviews found for {park_name} from {location}")
+    elif choice == '3':
+        park_name = input("Enter the park name: ")
+        year = input("Enter the year (YYYY): ")
+        avg_rating = procces.average_rating_by_year(data, park_name, year)
+        print(f"Average rating for {park_name} in {year} is {avg_rating}")
+    elif choice == '4':
+        procces.average_score_by_location(data)
+
 def handle_visualization(data):
     return
 def handle_export(data):
     return
 
 if __name__ == "__main__":
-    main()
+    main_function()

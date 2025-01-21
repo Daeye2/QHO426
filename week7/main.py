@@ -53,7 +53,7 @@ def handle_data_view(data):
         data_procces.average_score_by_location(data)
 
 
-def handle_visualization(data: object) -> object:
+def handle_visualization(data: object):
     # Handle the 'B' menu options
     choice = tui.display_visualization_menu()
     if choice == '1':
