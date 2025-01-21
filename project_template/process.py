@@ -25,7 +25,14 @@ def count_reviews_by_location(data, park_name, location):
 
 
 def average_rating_by_year(data, park_name, year):
-    return None
+    # Filter reviews by park and year
+    ratings = [
+        int(review['Rating'])
+        for review in data
+        if review['Branch'].lower() == park_name.lower() and review['Year_Month'].startswith(year)
+    ]
+    # Return average rating or 0 if no reviews
+    return sum(ratings) / len(ratings) if ratings else 0
 
 
 def average_score_by_location(data):

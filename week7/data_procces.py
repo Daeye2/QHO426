@@ -26,12 +26,12 @@ def count_reviews_by_location(data, park_name, location):
 
 # data_processor.py
 
-def average_rating_by_year(data, parkName, year):
+def average_rating_by_year(data, park_name, year):
     # Filter reviews by park and year
     ratings = [
         int(review['Rating'])
         for review in data
-        if review['Branch'].lower() == parkName.lower() and review['Year_Month'].startswith(year)
+        if review['Branch'].lower() == park_name.lower() and review['Year_Month'].startswith(year)
     ]
     # Return average rating or 0 if no reviews
     return sum(ratings) / len(ratings) if ratings else 0
