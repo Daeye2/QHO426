@@ -4,6 +4,8 @@ perfrom necessary processes in order to provide the desired result in the desire
 It is likely that most sections will require functions to be placed in this module.
 """
 import csv
+from collections import defaultdict
+
 
 def load_data(filename):
     data = []
@@ -36,7 +38,11 @@ def average_rating_by_year(data, park_name, year):
 
 
 def average_score_by_location(data):
-    return None
+    scores = defaultdict(list)
+    for review in data:
+        scores[review['Branch'], review['Reviewer_Location']].append(int(review['Rating']))
+    for (park, location), ratings in scores.items():
+        print(f"{park} - {location}: {sum(ratings) / len(ratings)}")
 
 
 def export_data(data, format_choice):
