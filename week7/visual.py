@@ -3,7 +3,7 @@ from collections import Counter, defaultdict
 import data_procces
 import matplotlib.pyplot as plt
 import matplotlib
-matplotlib.use('TkAgg')  # Ensures compatibility with GUI frameworks
+
 
 
 
@@ -46,12 +46,25 @@ def top_locations_by_rating(data, park_name):
         if review['Branch'].lower() == park_name.lower():
             location_ratings[review['Reviewer_Location']].append(int(review['Rating']))
 
-    # Calculate averages and find the top 10 locations
-    avg_ratings = {loc: sum(ratings) / len(ratings) for loc, ratings in location_ratings.items()}
-    top_10_locations = sorted(avg_ratings.items(), key=lambda x: x[1], reverse=True)[:10]
+    # Calculate averages
+    avg_ratings = {}
+    for loc, ratings in location_ratings.items():
+        avg_ratings[loc] = sum(ratings) / len(ratings)
+
+    # Define a custom sorting function
+    def sort_by_rating(item):
+        return item[1]  # Sort by the average rating
+
+    # Convert dictionary to a list of tuples and sort
+    sorted_avg_ratings = list(avg_ratings.items())
+    sorted_avg_ratings.sort(key=sort_by_rating, reverse=True)
+
+    # Extract the top 10 locations
+    top_10_locations = sorted_avg_ratings[:10]
 
     # Prepare data for the bar chart
-    labels, ratings = zip(*top_10_locations)
+    labels = [item[0] for item in top_10_locations]
+    ratings = [item[1] for item in top_10_locations]
 
     # Plot the bar chart
     plt.figure(figsize=(10, 6))
@@ -62,6 +75,7 @@ def top_locations_by_rating(data, park_name):
     plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
     plt.show()
+
 
 
 def monthly_avg_rating(data, park_name):
