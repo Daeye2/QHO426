@@ -14,7 +14,7 @@ import visual
 
 def main_function():
     # Try to load the dataset
-    data = process.load_data("disneyland_reviews.csv")
+    data = process.load_data("data/disneyland_reviews.csv")
     if not data:  # If data is empty, exit the program
         print("Failed to load the CSV. Exiting the application.")
         return
@@ -60,7 +60,7 @@ def handle_data_view(data):
     elif choice == '4':
         process.average_score_by_location(data)
 
-def handle_visualization(data: object):
+def handle_visualization(data):
     # Handle the 'B' menu options
     choice = tui.display_visualization_menu()
     if choice == '1':
