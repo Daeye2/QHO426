@@ -31,8 +31,9 @@ def visualization_menu():
     print("\nVisualization Menu")
     print("[1] - Pie chart of review counts by park")
     print("[2] - Bar chart of average scores by park")
-    print("[3] - Top 10 locations by rating for a park")
-    print("[4] - Monthly average rating for a park")
+    print("[3] - Scatterd chart of average scores by park")
+    print("[4] - Top 10 locations by rating for a park")
+    print("[5] - Monthly average rating for a park")
     return input("Enter your choice: ").strip()
 
 
