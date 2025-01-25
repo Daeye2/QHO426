@@ -76,6 +76,35 @@ def top_locations(data, park_name):
     plt.tight_layout()
     plt.show()
 
+def scatter_chart(data):
+    # Extract valid dates and ratings
+    dates = []
+    ratings = []
+    for review in data:
+        try:
+            # Try parsing the date
+            date = datetime.strptime(review['Year_Month'], '%Y-%m')
+            dates.append(date)
+            ratings.append(int(review['Rating']))
+        except (ValueError, KeyError):
+            # Skip entries with invalid or missing dates
+            continue
+
+    if not dates:
+        print("No valid data available for scatter chart.")
+        return
+
+    # Plot the scatter chart
+    plt.figure(figsize=(10, 6))
+    plt.scatter(dates, ratings, alpha=0.6, edgecolors='b', color='orange')
+    plt.xlabel("Date")
+    plt.ylabel("Rating")
+    plt.title("Ratings Over Time")
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+
+
 
 
 def monthly_average_rating(data, park_name):
