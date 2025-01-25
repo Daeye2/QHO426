@@ -64,12 +64,12 @@ def handle_visualization(data):
     # Handle the 'B' menu options
     choice = tui.visualization_menu()
     if choice == '1':
-        visual.pie_chart_review_counts(data)
+        visual.pie_chart(data)
     elif choice == '2':
-        visual.bar_chart_average_scores(data)
+        visual.bar_chart(data)
     elif choice == '3':
         park_name = input("Enter the park name: ")
-        visual.top_locations_by_rating(data, park_name)
+        visual.top_locations(data, park_name)
     elif choice == '4':
         park_name = input("Enter the park name: ")
         visual.monthly_avg_rating(data, park_name)

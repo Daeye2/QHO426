@@ -1,9 +1,6 @@
 import datetime
 from collections import Counter, defaultdict
-import matplotlib.pyplot as plt
-import matplotlib
-
-
+from matplotlib import pyplot as plt
 
 
 def pie_chart_review_counts(data):
