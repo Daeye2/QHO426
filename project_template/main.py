@@ -43,7 +43,7 @@ def main_function():
 
 def handle_data_view(data):
     # Handle the 'A' menu options
-    choice = tui.display_data_view_menu()
+    choice = tui.data_view_menu()
     if choice == '1':
         park_name = input("Enter the park name: ")
         process.display_reviews_by_park(data, park_name)
@@ -62,7 +62,7 @@ def handle_data_view(data):
 
 def handle_visualization(data):
     # Handle the 'B' menu options
-    choice = tui.display_visualization_menu()
+    choice = tui.visualization_menu()
     if choice == '1':
         visual.pie_chart_review_counts(data)
     elif choice == '2':
