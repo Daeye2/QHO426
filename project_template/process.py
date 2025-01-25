@@ -15,18 +15,18 @@ def load_data(filename):
             data.append(row)
     return data
 
-def display_reviews_by_park(data, park_name):
+def reviews_by_park(data, park_name):
     for review in data:
         if review['Branch'].lower() == park_name.lower():
             print(review)
 
-def count_reviews_by_location(data, park_name, location):
+def reviews_by_location(data, park_name, location):
     count = sum(1 for review in data if review['Branch'].lower() == park_name.lower() and review[
         'Reviewer_Location'].lower() == location.lower())
     return count
 
 
-def average_rating_by_year(data, park_name, year):
+def rating_by_year(data, park_name, year):
     # Filter reviews by park and year
     ratings = [
         int(review['Rating'])
@@ -37,7 +37,7 @@ def average_rating_by_year(data, park_name, year):
     return sum(ratings) / len(ratings) if ratings else 0
 
 
-def average_score_by_location(data):
+def score_by_location(data):
     # Calculates and prints the average rating for each branch and reviewer location.
     scores = defaultdict(list)
     for review in data:

@@ -7,7 +7,7 @@ Note:   any user input/output should be done in the module 'tui'
         any processing should be done in the module 'process'
         any visualisation should be done in the module 'visual'
 """
-import csv
+
 import process
 import tui
 import visual
@@ -46,19 +46,19 @@ def handle_data_view(data):
     choice = tui.data_view_menu()
     if choice == '1':
         park_name = input("Enter the park name: ")
-        process.display_reviews_by_park(data, park_name)
+        process.reviews_by_park(data, park_name)
     elif choice == '2':
         park_name = input("Enter the park name: ")
         location = input("Enter the reviewer's location: ")
-        count = process.count_reviews_by_location(data, park_name, location)
+        count = process.reviews_by_location(data, park_name, location)
         print(f"{count} reviews found for {park_name} from {location}")
     elif choice == '3':
         park_name = input("Enter the park name: ")
         year = input("Enter the year (YYYY): ")
-        avg_rating = process.average_rating_by_year(data, park_name, year)
+        avg_rating = process.rating_by_year(data, park_name, year)
         print(f"Average rating for {park_name} in {year} is {avg_rating}")
     elif choice == '4':
-        process.average_score_by_location(data)
+        process.score_by_location(data)
 
 def handle_visualization(data):
     # Handle the 'B' menu options
