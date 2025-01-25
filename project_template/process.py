@@ -8,6 +8,7 @@ from collections import defaultdict
 
 
 def load_data(filename):
+    #Load the data from CSV file
     data = []
     with open(filename, newline='') as csvfile:
         reader = csv.DictReader(csvfile)
@@ -16,11 +17,13 @@ def load_data(filename):
     return data
 
 def reviews_by_park(data, park_name):
+    # Iterate through reviews in the data list and print reviews matching the specified park name.
     for review in data:
         if review['Branch'].lower() == park_name.lower():
             print(review)
 
 def reviews_by_location(data, park_name, location):
+    # Count the number of reviews that match the specified park name and reviewer location.
     count = sum(1 for review in data if review['Branch'].lower() == park_name.lower() and review[
         'Reviewer_Location'].lower() == location.lower())
     return count
