@@ -68,9 +68,11 @@ def handle_visualization(data):
     elif choice == '2':
         visual.bar_chart(data)
     elif choice == '3':
+        visual.scatter_chart(data)
+    elif choice == '4':
         park_name = input("Enter the park name: ")
         visual.top_locations(data, park_name)
-    elif choice == '4':
+    elif choice == '5':
         park_name = input("Enter the park name: ")
         visual.monthly_average_rating(data, park_name)
 
