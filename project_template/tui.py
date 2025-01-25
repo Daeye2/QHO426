@@ -8,7 +8,7 @@ Please note that you do not need to read the data file or perform any other such
 """
 
 
-def display_main_menu():
+def main_menu():
     #Displays the main menu to the user and input for a choice.
     print("Main Menu")
     print("[A] - View Data")
@@ -17,7 +17,7 @@ def display_main_menu():
     print("Type 'exit' to close the application")
     return input("Enter your choice: ").strip().upper()
 
-def display_data_view_menu():
+def data_view_menu():
     # Displays the data view menu to the user and input for a choice.
     print("\nData View Menu")
     print("[1] - View all reviews for a specific park")
@@ -26,7 +26,7 @@ def display_data_view_menu():
     print("[4] - Average score per park by location")
     return input("Enter your choice: ").strip()
 
-def display_visualization_menu():
+def visualization_menu():
     # Displays the visualization menu to the user and input for a choice.
     print("\nVisualization Menu")
     print("[1] - Pie chart of review counts by park")
@@ -37,6 +37,6 @@ def display_visualization_menu():
 
 
 if __name__ == "__main__":
-    display_main_menu()
-    display_data_view_menu()
-    display_visualization_menu()
+    main_menu()
+    data_view_menu()
+    visualization_menu()
