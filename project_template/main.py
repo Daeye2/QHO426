@@ -72,7 +72,7 @@ def handle_visualization(data):
         visual.top_locations(data, park_name)
     elif choice == '4':
         park_name = input("Enter the park name: ")
-        visual.monthly_avg_rating(data, park_name)
+        visual.monthly_average_rating(data, park_name)
 
 
 def handle_export(data):

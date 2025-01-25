@@ -3,6 +3,7 @@ This module is responsible for visualising the data using Matplotlib.
 Any visualisations should be generated via functions in this module.
 """
 from collections import Counter, defaultdict
+from datetime import datetime
 
 from matplotlib import pyplot as plt
 
@@ -77,5 +78,25 @@ def top_locations(data, park_name):
 
 
 
-def monthly_avg_rating(data, park_name):
-    return None
+def monthly_average_rating(data, park_name):
+    # Calculate average rating for each month for a specific park
+    month_ratings = defaultdict(list)
+    for review in data:
+        if review['Branch'].lower() == park_name.lower():
+            # Extract month from 'Year_Month' column
+            month = datetime.datetime.strptime(review['Year_Month'], '%Y-%m').month
+            month_ratings[month].append(int(review['Rating']))
+
+    # Calculate averages for each month
+    months = range(1, 13)
+    avg_ratings = [sum(month_ratings[month]) / len(month_ratings[month]) if month in month_ratings else 0 for month in
+                   months]
+
+    # Plot the bar chart
+    month_names = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    plt.figure(figsize=(10, 6))
+    plt.bar(month_names, avg_ratings, color='green')
+    plt.xlabel("Month")
+    plt.ylabel("Average Rating")
+    plt.title(f"Monthly Average Ratings for {park_name}")
+    plt.show()
