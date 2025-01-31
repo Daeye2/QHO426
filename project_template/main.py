@@ -15,8 +15,12 @@ import visual
 def main_function():
     # Display the title
     title = "DisneyLand Review Analyser"
-    print(title)
-    print("-" * len(title))  # Print dashes equal to the length of the title
+    dashes = "-" * len(title)  # Print dashes equal to the length of the title
+
+    print(dashes)  # Print dashes above the title
+    print(title)   # Print the title
+    print(dashes)  # Print dashes below the title
+
     # Try to load the dataset
     data = process.load_data("data/disneyland_reviews.csv")
     if not data:  # If data is empty, exit the program
