@@ -68,7 +68,7 @@ def top_locations(data, park_name):
 
     # Plot the bar chart
     plt.figure(figsize=(10, 6))
-    plt.bar(labels, ratings, color='red')
+    plt.bar(labels, ratings, color='lime')
     plt.xlabel("Location")
     plt.ylabel("Average Rating")
     plt.title(f"Top 10 Locations by Rating for {park_name}")

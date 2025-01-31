@@ -27,15 +27,15 @@ def main_function():
         print("[B] - View Visualizations")
         print("[C] - Export Data")
         print("Type 'exit' to close the application")
-        choice = input("Enter your choice: ").strip().upper()
+        select = input("Enter your choice: ").strip().upper()
 
-        if choice == 'A':
+        if select == 'A':
             handle_data_view(data)
-        elif choice == 'B':
+        elif select == 'B':
             handle_visualization(data)
-        elif choice == 'C':
+        elif select == 'C':
             handle_export(data)
-        elif choice.lower() == 'exit':
+        elif select.lower() == 'exit':
             print("Exiting application.")
             break
         else:
@@ -43,36 +43,36 @@ def main_function():
 
 def handle_data_view(data):
     # Handle the 'A' menu options
-    choice = tui.data_view_menu()
-    if choice == '1':
+    select = tui.data_view_menu()
+    if select == '1':
         park_name = input("Enter the park name: ")
         process.reviews_by_park(data, park_name)
-    elif choice == '2':
+    elif select == '2':
         park_name = input("Enter the park name: ")
         location = input("Enter the reviewer's location: ")
         count = process.reviews_by_location(data, park_name, location)
         print(f"{count} reviews found for {park_name} from {location}")
-    elif choice == '3':
+    elif select == '3':
         park_name = input("Enter the park name: ")
         year = input("Enter the year (YYYY): ")
         avg_rating = process.rating_by_year(data, park_name, year)
         print(f"Average rating for {park_name} in {year} is {avg_rating}")
-    elif choice == '4':
+    elif select == '4':
         process.score_by_location(data)
 
 def handle_visualization(data):
     # Handle the 'B' menu options
-    choice = tui.visualization_menu()
-    if choice == '1':
+    select = tui.visualization_menu()
+    if select == '1':
         visual.pie_chart(data)
-    elif choice == '2':
+    elif select == '2':
         visual.bar_chart(data)
-    elif choice == '3':
+    elif select == '3':
         visual.scatter_chart(data)
-    elif choice == '4':
+    elif select == '4':
         park_name = input("Enter the park name: ")
         visual.top_locations(data, park_name)
-    elif choice == '5':
+    elif select == '5':
         park_name = input("Enter the park name: ")
         visual.monthly_average_rating(data, park_name)
 
